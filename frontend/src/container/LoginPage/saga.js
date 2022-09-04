@@ -10,7 +10,7 @@ export function* loginUserAsync({ payload }) {
   try {
     const { data: { success, token, _id: id, name } } = yield call(axios,
       { method: 'POST', data: { email, password }, url });
-    console.log(success, token, id, name)
+    // console.log(success, token, id, name)
     if (success) {
       yield window.localStorage.setItem('user', JSON.stringify({ id, name, email, token }))
       yield put(loginUserSuccess({ id, name, email, token }))

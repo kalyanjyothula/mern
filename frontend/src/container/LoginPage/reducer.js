@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const useDetails = JSON.parse(localStorage.getItem('user'))
+const userDetails = JSON.parse(localStorage.getItem('user'))
 
-const initialState = { useDetails: useDetails ? useDetails : null, email: "", password: "", loading: false }
+const initialState = { userDetails: userDetails ? userDetails : null, email: "", password: "", loading: false }
 
 const loginReducer = createSlice({
   name: 'login',
@@ -18,7 +18,7 @@ const loginReducer = createSlice({
       return {
         ...state,
         loading: false,
-        useDetails: { id, email, name, token },
+        userDetails: { id, email, name, token },
         isSuccess: true,
         isError: false
       }
@@ -27,7 +27,7 @@ const loginReducer = createSlice({
       return {
         ...state, loading: false,
         isSuccess: false,
-        useDetails: null,
+        userDetails: null,
         isError: true
       }
     }
