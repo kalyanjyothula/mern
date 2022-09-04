@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken')
 
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
-
+  // console.log("running register", req)
   if (!name || !email || !password) {
     res.status(404)
     throw new Error("Please add all fileds !")
@@ -27,9 +27,10 @@ const registerUser = asyncHandler(async (req, res) => {
     email,
     password: hashedPassword,
   })
-  // console.log("db action !")
+  console.log("db action !")
   if (user) {
     res.status(201).json({
+      success: true,
       _id: user.id,
       name: user.name,
       email: user.email,

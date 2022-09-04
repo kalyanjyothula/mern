@@ -12,18 +12,18 @@ export default function LoginPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate()
 
-  const { loading, isError, useDetails, isSuccess, email, password } = useSelector(loginPageSeclector)
+  const { loading, isError, userDetails, isSuccess, email, password } = useSelector(loginPageSeclector)
 
   useEffect(() => {
     if (isError) {
       toast.error("something went wrong !")
     }
 
-    if (isSuccess || useDetails) {
+    if (isSuccess || userDetails) {
       navigate('/app')
     }
 
-  }, [isSuccess, navigate, isError, useDetails])
+  }, [isSuccess, navigate, isError, userDetails])
 
 
   const handleChange = (e) => {
